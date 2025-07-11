@@ -1,0 +1,12 @@
+C:\Users\vitorgc\dev-projects\ecommerce\ecommerce-api\src\main\java\app\ecommerce\config\RestTemplateConfig.java
+C:\Users\vitorgc\dev-projects\ecommerce\ecommerce-api\src\main\java\app\ecommerce\controller\AddressController.java
+C:\Users\vitorgc\dev-projects\ecommerce\ecommerce-api\src\main\java\app\ecommerce\controller\CustomerController.java
+C:\Users\vitorgc\dev-projects\ecommerce\ecommerce-api\src\main\java\app\ecommerce\dto\AddressZipCodeDTO.java
+C:\Users\vitorgc\dev-projects\ecommerce\ecommerce-api\src\main\java\app\ecommerce\dto\CustomerRequestDTO.java
+C:\Users\vitorgc\dev-projects\ecommerce\ecommerce-api\src\main\java\app\ecommerce\EcommerceApplication.java
+C:\Users\vitorgc\dev-projects\ecommerce\ecommerce-api\src\main\java\app\ecommerce\model\Address.java
+C:\Users\vitorgc\dev-projects\ecommerce\ecommerce-api\src\main\java\app\ecommerce\model\Customer.java
+C:\Users\vitorgc\dev-projects\ecommerce\ecommerce-api\src\main\java\app\ecommerce\model\Person.java
+C:\Users\vitorgc\dev-projects\ecommerce\ecommerce-api\src\main\java\app\ecommerce\repository\CustomerRepository.java
+C:\Users\vitorgc\dev-projects\ecommerce\ecommerce-api\src\main\java\app\ecommerce\service\AddressService.java
+C:\Users\vitorgc\dev-projects\ecommerce\ecommerce-api\src\main\java\app\ecommerce\service\CustomerService.java

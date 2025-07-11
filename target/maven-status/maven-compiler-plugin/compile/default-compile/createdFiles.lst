@@ -1,0 +1,12 @@
+app\ecommerce\model\Customer.class
+app\ecommerce\controller\AddressController.class
+app\ecommerce\config\RestTemplateConfig.class
+app\ecommerce\service\AddressService.class
+app\ecommerce\service\CustomerService.class
+app\ecommerce\repository\CustomerRepository.class
+app\ecommerce\controller\CustomerController.class
+app\ecommerce\dto\AddressZipCodeDTO.class
+app\ecommerce\EcommerceApplication.class
+app\ecommerce\model\Person.class
+app\ecommerce\dto\CustomerRequestDTO.class
+app\ecommerce\model\Address.class
