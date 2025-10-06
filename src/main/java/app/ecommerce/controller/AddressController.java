@@ -22,7 +22,7 @@ public class AddressController {
             @ApiResponse(responseCode = "400", description = "Formato de CEP inválido")
     })
     @GetMapping("/{zipCode}")
-    public Address getCustomerById(@PathVariable String zipCode) {
+    public Address getAddressByZipCode(@PathVariable String zipCode) {
         return addressService.getAddressByZipCode(zipCode);
     }
 }

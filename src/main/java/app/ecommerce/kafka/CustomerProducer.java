@@ -1,4 +1,22 @@
 package app.ecommerce.kafka;
 
+import app.ecommerce.model.Customer;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
+
+@Service
 public class CustomerProducer {
+
+    private static final String TOPIC = "topic-new-customer";
+
+    private final KafkaTemplate<String, Customer> kafkaTemplate;
+
+    public CustomerProducer(KafkaTemplate<String, Customer> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
+
+    public void sendNewCustomer(Customer customer) {
+        kafkaTemplate.send(TOPIC, customer);
+        System.out.println("Event new customer sent to Kafka: " + customer.getPerson().getName());
+    }
 }
