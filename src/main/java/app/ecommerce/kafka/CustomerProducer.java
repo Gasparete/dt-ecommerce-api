@@ -17,6 +17,5 @@ public class CustomerProducer {
 
     public void sendNewCustomer(Customer customer) {
         kafkaTemplate.send(TOPIC, customer);
-        System.out.println("Event new customer sent to Kafka: " + customer.getPerson().getName());
     }
 }

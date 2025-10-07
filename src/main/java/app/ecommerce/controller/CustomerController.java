@@ -1,7 +1,11 @@
 package app.ecommerce.controller;
 
+import app.ecommerce.dto.CustomerRequestDTO;
+import app.ecommerce.dto.CustomerResponseDTO;
+import app.ecommerce.kafka.CustomerProducer;
 import app.ecommerce.model.Customer;
 import app.ecommerce.service.CustomerService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,11 +15,12 @@ import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class CustomerController {
-
     private final CustomerService customerService;
+    private final CustomerProducer customerProducer;
 
-    public CustomerController(CustomerService customerService) {
+    public CustomerController(CustomerService customerService, CustomerProducer customerProducer) {
         this.customerService = customerService;
+        this.customerProducer = customerProducer;
     }
 
     @GetMapping("/customers")
@@ -28,14 +33,13 @@ public class CustomerController {
         return customerService.getCustomerById(id);
     }
 
-//    @PostMapping("/customer")
-//    public ResponseEntity<Customer> createClient(@RequestBody CustomerRequestDTO clientDTO) {
-//        return customerService.createClient(clientDTO);
-//    }
-
     @PostMapping("/customers")
-    public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
-        return customerService.createCustomer(customer);
+    public ResponseEntity<CustomerResponseDTO> createCustomer(@RequestBody CustomerRequestDTO customerRequestDTO) {
+        Customer customer = new Customer(customerRequestDTO);
+        customerProducer.sendNewCustomer(customer);
+        CustomerResponseDTO responseDTO = new CustomerResponseDTO(customer);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(responseDTO);
     }
 
     @PutMapping("/customers/{id}")

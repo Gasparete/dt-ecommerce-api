@@ -14,11 +14,9 @@ import java.util.Optional;
 public class CustomerService {
 
     private final CustomerRepository repository;
-    private final AddressService addressService;
 
-    public CustomerService(CustomerRepository repository, AddressService addressService) {
+    public CustomerService(CustomerRepository repository) {
         this.repository = repository;
-        this.addressService = addressService;
     }
 
     public List<Customer> getCustomers() {
@@ -29,15 +27,8 @@ public class CustomerService {
         return repository.findById(id);
     }
 
-//    public ResponseEntity<Customer> createClient(CustomerRequestDTO clientDTO) {
-//        Customer client = new Customer(clientDTO);
-//        Address addressFilled = addressService.getAddressByZipCode(clientDTO.getAddress().getZipCode());
-//        client.setAddress(addressFilled);
-//        return ResponseEntity.ok(repository.save(client));
-//    }
-
-    public ResponseEntity<Customer> createCustomer(Customer customer) {
-        return ResponseEntity.ok(repository.save(customer));
+    public void createCustomer(Customer customer) {
+        repository.save(customer);
     }
 
     public ResponseEntity<Void> deleteCustomer(Long id) {

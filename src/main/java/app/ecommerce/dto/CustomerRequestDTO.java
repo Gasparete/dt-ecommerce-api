@@ -3,12 +3,11 @@ package app.ecommerce.dto;
 import app.ecommerce.model.Person;
 
 public class CustomerRequestDTO {
-    
-    private Person person;
-    private AddressZipCodeDTO address;
+    private PersonDTO person;
+    private AddressDTO address;
     private String email;
 
-    public Person getPerson() {
+    public PersonDTO getPerson() {
         return person;
     }
 
@@ -16,7 +15,7 @@ public class CustomerRequestDTO {
         return email;
     }
 
-    public AddressZipCodeDTO getAddress() {
+    public AddressDTO getAddress() {
         return address;
     }
 }

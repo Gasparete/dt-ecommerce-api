@@ -1,26 +1,11 @@
-package app.ecommerce.model;
+package app.ecommerce.dto;
 
-import jakarta.persistence.Embeddable;
-
-@Embeddable
-public class Address {
-
+public class AddressDTO {
     private String zipCode;
     private String street;
     private String neighborhood;
     private String city;
     private String state;
-
-    public Address() {
-    }
-
-    public Address(String zipCode, String street, String neighborhood, String city, String state) {
-        this.zipCode = zipCode;
-        this.street = street;
-        this.neighborhood = neighborhood;
-        this.city = city;
-        this.state = state;
-    }
 
     public String getZipCode() {
         return zipCode;
