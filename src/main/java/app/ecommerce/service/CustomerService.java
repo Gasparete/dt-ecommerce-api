@@ -27,8 +27,8 @@ public class CustomerService {
         return repository.findById(id);
     }
 
-    public void createCustomer(Customer customer) {
-        repository.save(customer);
+    public Customer save(Customer customer) {
+        return repository.save(customer);
     }
 
     public ResponseEntity<Void> deleteCustomer(Long id) {

@@ -37,9 +37,9 @@ public class CustomerController {
     public ResponseEntity<CustomerResponseDTO> createCustomer(@RequestBody CustomerRequestDTO customerRequestDTO) {
         Customer customer = new Customer(customerRequestDTO);
         customerProducer.sendNewCustomer(customer);
-        CustomerResponseDTO responseDTO = new CustomerResponseDTO(customer);
+        CustomerResponseDTO customerResponseDTO = new CustomerResponseDTO(customer);
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(responseDTO);
+                .body(customerResponseDTO);
     }
 
     @PutMapping("/customers/{id}")

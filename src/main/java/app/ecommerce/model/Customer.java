@@ -18,6 +18,8 @@ public class Customer {
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private CustomerStatus status;
+    @Transient
+    private String tempId;
 
     public Customer() {
     }
@@ -34,12 +36,13 @@ public class Customer {
 
         PersonDTO personDto = customerDTO.getPerson();
         this.person = new Person(
-                personDto.getCpf(),
-                personDto.getName()
+                personDto.getName(),
+                personDto.getCpf()
         );
 
         this.email = customerDTO.getEmail();
         this.status = CustomerStatus.EM_ANALISE;
+        this.tempId = customerDTO.getTempId();
     }
 
     public Long getId() {
@@ -76,5 +79,13 @@ public class Customer {
 
     public void setStatus(CustomerStatus status) {
         this.status = status;
+    }
+
+    public String getTempId() {
+        return tempId;
+    }
+
+    public void setTempId(String tempId) {
+        this.tempId = tempId;
     }
 }

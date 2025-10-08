@@ -1,26 +1,20 @@
 package app.ecommerce.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class Person {
 
-    private String cpf;
     private String name;
+    @Column(nullable = false, unique = true)
+    private String cpf;
 
     public Person() {
     }
 
-    public Person(String cpf, String name) {
-        this.cpf = cpf;
+    public Person(String name, String cpf) {
         this.name = name;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -30,5 +24,13 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 }
