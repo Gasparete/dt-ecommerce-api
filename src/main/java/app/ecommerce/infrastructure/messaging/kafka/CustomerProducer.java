@@ -1,6 +1,6 @@
-package app.ecommerce.kafka;
+package app.ecommerce.infrastructure.messaging.kafka;
 
-import app.ecommerce.model.Customer;
+import app.ecommerce.domain.model.Customer;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 

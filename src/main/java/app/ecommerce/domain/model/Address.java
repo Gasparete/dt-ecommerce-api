@@ -1,4 +1,4 @@
-package app.ecommerce.model;
+package app.ecommerce.domain.model;
 
 import jakarta.persistence.Embeddable;
 

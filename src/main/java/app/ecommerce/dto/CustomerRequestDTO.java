@@ -1,7 +1,5 @@
 package app.ecommerce.dto;
 
-import app.ecommerce.model.Person;
-
 public class CustomerRequestDTO {
     private PersonDTO person;
     private AddressDTO address;

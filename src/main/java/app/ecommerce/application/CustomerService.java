@@ -1,6 +1,6 @@
-package app.ecommerce.service;
+package app.ecommerce.application;
 
-import app.ecommerce.model.Customer;
+import app.ecommerce.domain.model.Customer;
 import app.ecommerce.repository.CustomerRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

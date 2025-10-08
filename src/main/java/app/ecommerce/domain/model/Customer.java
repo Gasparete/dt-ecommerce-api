@@ -1,4 +1,4 @@
-package app.ecommerce.model;
+package app.ecommerce.domain.model;
 
 import app.ecommerce.dto.AddressDTO;
 import app.ecommerce.dto.CustomerRequestDTO;

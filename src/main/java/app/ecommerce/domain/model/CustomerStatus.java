@@ -1,4 +1,4 @@
-package app.ecommerce.model;
+package app.ecommerce.domain.model;
 
 public enum CustomerStatus {
     EM_ANALISE("Em análise"),

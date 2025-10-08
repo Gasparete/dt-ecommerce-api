@@ -1,4 +1,4 @@
-package app.ecommerce.service;
+package app.ecommerce.application;
 
 import app.ecommerce.dto.CustomerResponseDTO;
 import org.slf4j.Logger;

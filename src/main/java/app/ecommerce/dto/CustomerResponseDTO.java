@@ -1,7 +1,7 @@
 package app.ecommerce.dto;
 
-import app.ecommerce.model.Customer;
-import app.ecommerce.model.CustomerStatus;
+import app.ecommerce.domain.model.Customer;
+import app.ecommerce.domain.model.CustomerStatus;
 
 public class CustomerResponseDTO {
     private Long id;
@@ -18,18 +18,18 @@ public class CustomerResponseDTO {
         this.tempId = customer.getTempId();
 
         if (customer.getPerson() != null) {
-            this.person = new PersonDTO();
-            this.person.setName(customer.getPerson().getName());
-            this.person.setCpf(customer.getPerson().getCpf());
+            this.person = new PersonDTO(
+                    customer.getPerson().getName(),
+                    customer.getPerson().getCpf());
         }
 
         if (customer.getAddress() != null) {
-            this.address = new AddressDTO();
-            this.address.setZipCode(customer.getAddress().getZipCode());
-            this.address.setStreet(customer.getAddress().getStreet());
-            this.address.setNeighborhood(customer.getAddress().getNeighborhood());
-            this.address.setCity(customer.getAddress().getCity());
-            this.address.setState(customer.getAddress().getState());
+            this.address = new AddressDTO(
+                    customer.getAddress().getZipCode(),
+                    customer.getAddress().getStreet(),
+                    customer.getAddress().getNeighborhood(),
+                    customer.getAddress().getCity(),
+                    customer.getAddress().getState());
         }
     }
 
