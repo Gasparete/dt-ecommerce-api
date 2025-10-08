@@ -14,6 +14,7 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
+@RequestMapping("/api/v1/customers")
 public class CustomerController {
     private final CustomerService customerService;
     private final CustomerProducer customerProducer;
@@ -23,17 +24,17 @@ public class CustomerController {
         this.customerProducer = customerProducer;
     }
 
-    @GetMapping("/customers")
+    @GetMapping
     public List<Customer> getCustomers() {
         return customerService.getCustomers();
     }
 
-    @GetMapping("/customers/{id}")
+    @GetMapping("/{id}")
     public Optional<Customer> getCustomerById(@PathVariable Long id) {
         return customerService.getCustomerById(id);
     }
 
-    @PostMapping("/customers")
+    @PostMapping
     public ResponseEntity<CustomerResponseDTO> createCustomer(@RequestBody CustomerRequestDTO customerRequestDTO) {
         Customer customer = new Customer(customerRequestDTO);
         customerProducer.sendNewCustomer(customer);
@@ -42,12 +43,12 @@ public class CustomerController {
                 .body(customerResponseDTO);
     }
 
-    @PutMapping("/customers/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody Customer updatedCustomer) {
         return customerService.updateCustomer(id, updatedCustomer);
     }
 
-    @DeleteMapping("/customers/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCustomer(@PathVariable Long id) {
         return customerService.deleteCustomer(id);
     }
