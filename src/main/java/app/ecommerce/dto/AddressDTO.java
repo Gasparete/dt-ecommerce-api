@@ -7,6 +7,9 @@ public class AddressDTO {
     private String city;
     private String state;
 
+    public AddressDTO() {
+    }
+
     public AddressDTO(String zipCode, String street, String neighborhood, String city, String state) {
         this.zipCode = zipCode;
         this.street = street;

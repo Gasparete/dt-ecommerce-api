@@ -1,15 +1,18 @@
 package app.ecommerce.dto;
 
-import app.ecommerce.domain.model.Customer;
-import app.ecommerce.domain.model.CustomerStatus;
+import app.ecommerce.domain.model.customer.Customer;
+import app.ecommerce.domain.model.customer.Status;
 
 public class CustomerResponseDTO {
     private Long id;
     private PersonDTO person;
     private AddressDTO address;
     private String email;
-    private CustomerStatus status;
+    private Status status;
     private String tempId;
+
+    public CustomerResponseDTO() {
+    }
 
     public CustomerResponseDTO(Customer customer) {
         this.id = customer.getId();
@@ -65,11 +68,11 @@ public class CustomerResponseDTO {
         this.email = email;
     }
 
-    public CustomerStatus getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(CustomerStatus status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

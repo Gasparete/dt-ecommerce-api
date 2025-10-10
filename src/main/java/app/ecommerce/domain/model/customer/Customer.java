@@ -1,5 +1,7 @@
-package app.ecommerce.domain.model;
+package app.ecommerce.domain.model.customer;
 
+import app.ecommerce.domain.model.Address;
+import app.ecommerce.domain.model.Person;
 import app.ecommerce.dto.AddressDTO;
 import app.ecommerce.dto.CustomerRequestDTO;
 import app.ecommerce.dto.PersonDTO;
@@ -15,9 +17,8 @@ public class Customer {
     @Embedded
     private Person person;
     private String email;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
-    private CustomerStatus status;
+    @Embedded
+    private Status status;
     @Transient
     private String tempId;
 
@@ -41,7 +42,7 @@ public class Customer {
         );
 
         this.email = customerDTO.getEmail();
-        this.status = CustomerStatus.EM_ANALISE;
+        this.status = Status.EM_ANALISE;
         this.tempId = customerDTO.getTempId();
     }
 
@@ -73,11 +74,11 @@ public class Customer {
         this.person = person;
     }
 
-    public CustomerStatus getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(CustomerStatus status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

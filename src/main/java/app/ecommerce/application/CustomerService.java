@@ -1,7 +1,9 @@
 package app.ecommerce.application;
 
-import app.ecommerce.domain.model.Customer;
+import app.ecommerce.application.exception.DuplicateCpfException;
+import app.ecommerce.domain.model.customer.Customer;
 import app.ecommerce.repository.CustomerRepository;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -28,7 +30,11 @@ public class CustomerService {
     }
 
     public Customer save(Customer customer) {
-        return repository.save(customer);
+        try {
+            return repository.save(customer);
+        } catch (DataIntegrityViolationException e) {
+            throw new DuplicateCpfException("O CPF " + customer.getPerson().getCpf() + " já está cadastrado.");
+        }
     }
 
     public ResponseEntity<Void> deleteCustomer(Long id) {

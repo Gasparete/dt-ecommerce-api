@@ -1,7 +1,7 @@
 package app.ecommerce.domain.validation;
 
-import app.ecommerce.domain.model.Customer;
-import app.ecommerce.domain.model.CustomerStatus;
+import app.ecommerce.domain.model.customer.Customer;
+import app.ecommerce.domain.model.customer.Status;
 import app.ecommerce.port.CpfValidationPort;
 import org.springframework.stereotype.Service;
 
@@ -14,17 +14,17 @@ public class CustomerValidator {
         this.cpfValidationPort = cpfValidationPort;
     }
 
-    public CustomerStatus validate(Customer customer) {
+    public Status validate(Customer customer) {
         String cpf = customer.getPerson().getCpf();
 
         if (!cpfValidationPort.isCpfRegistered(cpf)) {
-            return CustomerStatus.ERRO;
+            return Status.falhaCpfNaoRegistrado();
         }
 
         if (!cpfValidationPort.hasClearLegalRecord(cpf)) {
-            return CustomerStatus.ERRO;
+            return Status.falhaCpfComPendencias();
         }
 
-        return CustomerStatus.OK;
+        return Status.OK;
     }
 }

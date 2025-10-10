@@ -1,7 +1,7 @@
 package app.ecommerce.controller;
 
 import app.ecommerce.application.CustomerService;
-import app.ecommerce.domain.model.Customer;
+import app.ecommerce.domain.model.customer.Customer;
 import app.ecommerce.dto.CustomerRequestDTO;
 import app.ecommerce.dto.CustomerResponseDTO;
 import app.ecommerce.infrastructure.messaging.kafka.CustomerProducer;

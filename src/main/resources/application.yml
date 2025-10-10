@@ -28,11 +28,15 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
-      group-id: grupo-cadastro-cliente
+      group-id: group-new-customer
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: "*"
+      enable-auto-commit: false
+    listener:
+      ack-mode: record # confirma após cada mensagem processada
+      missing-topics-fatal: false # evita falha ao iniciar se DLT ainda não existir
 
 logging:
   level:

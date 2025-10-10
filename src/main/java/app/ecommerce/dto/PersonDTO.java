@@ -4,6 +4,9 @@ public class PersonDTO {
     private String name;
     private String cpf;
 
+    public PersonDTO() {
+    }
+
     public PersonDTO(String name, String cpf) {
         this.name = name;
         this.cpf = cpf;

@@ -6,6 +6,9 @@ public class CustomerRequestDTO {
     private String email;
     private String tempId;
 
+    public CustomerRequestDTO() {
+    }
+
     public PersonDTO getPerson() {
         return person;
     }
