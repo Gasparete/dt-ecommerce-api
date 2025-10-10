@@ -22,7 +22,7 @@ public class CustomerProcessorService {
             customer.setStatus(customerValidator.validate(customer));
             return customerService.save(customer);
         } catch (DuplicateCpfException e) {
-            customer.setStatus(Status.falhaCpfDuplicado(customer.getPerson().getCpf()));
+            customer.setStatus(Status.errorCpfDuplicated(customer.getPerson().getCpf()));
             return customer;
         }
     }

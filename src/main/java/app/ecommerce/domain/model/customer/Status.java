@@ -18,19 +18,19 @@ public class Status {
         this.description = description;
     }
 
-    public static Status falhaErro(String errorMessage) {
+    public static Status errorGeneric(String errorMessage) {
         return new Status("ERRO", String.format("Falha: %s", errorMessage));
     }
 
-    public static Status falhaCpfDuplicado(String cpf) {
+    public static Status errorCpfDuplicated(String cpf) {
         return new Status("ERRO", "Falha: O CPF '" + cpf + "' já está cadastrado.");
     }
 
-    public static Status falhaCpfNaoRegistrado() {
+    public static Status errorCpfNotRegistered() {
         return new Status("ERRO", "Falha: O CPF informado não foi encontrado nos registros.");
     }
 
-    public static Status falhaCpfComPendencias() {
+    public static Status errorCpfWithPendingIssues() {
         return new Status("ERRO", "Falha: O CPF informado possui pendências legais.");
     }
 

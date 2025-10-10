@@ -18,11 +18,11 @@ public class CustomerValidator {
         String cpf = customer.getPerson().getCpf();
 
         if (!cpfValidationPort.isCpfRegistered(cpf)) {
-            return Status.falhaCpfNaoRegistrado();
+            return Status.errorCpfNotRegistered();
         }
 
         if (!cpfValidationPort.hasClearLegalRecord(cpf)) {
-            return Status.falhaCpfComPendencias();
+            return Status.errorCpfWithPendingIssues();
         }
 
         return Status.OK;
